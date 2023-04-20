@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <title>Email</title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script src="/static/main.js"></script>
+
+</head>
+
+<body>
+
+    {# NavBar #}
+
+    <nav class="navbar">
+
+        <a class="navbar-brand" href="/">Customers</a>
+
+    </nav>
+
+    {# Email info #}
+
+    <section>
+        
+        <h2>Unresponded Emails</h2>
+        
+        <ul>
+
+        {% for email in emails %}
+            
+        <form action="/reply" method="POST">    
+
+            ID: {{ email.id }} <br>
+            Sender: {{ email.Sender_Email }} <br>
+            Received: <input type="hidden" name="Receive_Date" id="Receive_Date" value="{{ email.Receive_Date }}">{{ email.Receive_Date }} <br>
+            <br>        
+            Subject: {{ email.Subject }} <br>
+            Body: {{ email.Body }} <br>
+            <br>
+            Retrieval Date: {{ email.Retrieval_Date }} <br>
+            Responded?: {{ email.Response_Flag }} <br>
+            Response Date: {{ email.Response_Date }} <br>
+
+            <h2>EMAIL TO SEND:</h2>
+                <div>
+                    <label for="email">To: </label>
+                    <input type="hidden" name="email" id="email" value="{{ emails[0].Sender_Email }}">{{ emails[0].Sender_Email }}
+                </div>
+                <br>
+                <div>
+                    <label for="subject">In reply to: </label>
+                    <input type="hidden" name="subject" id="subject" value="{{emails[0].Subject}}">{{emails[0].Subject}}
+                </div>
+                <br>
+                <div>
+                    <label for="subject">Message: </label>
+                    <textarea id="message" name="message" width="30">{{message}}</textarea>
+                </div>
+                <br>
+                <button type="submit">Send</button>
+        </form>
+
+
+        {% endfor %}
+
+        </ul>
+
+    </section>
+
+</body>
+</html>
+
+ 

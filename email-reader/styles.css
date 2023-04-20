@@ -1,0 +1,73 @@
+/* CSS settings, such as html navigation and form inputs */
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+  
+
+  body {
+
+    font-family: sans-serif;
+
+}
+
+  
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+
+      color: #eee;
+
+      background: #121212;
+
+    }
+
+}
+
+  
+
+nav {
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background-color: lightblue;
+
+}
+
+  
+
+nav a {
+
+    float: left;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    color: #454545;
+
+    text-align: center;
+
+    padding: 14px 16px;
+
+    text-decoration: none;
+
+}
+
+
+@media screen and (max-width: 480px){
+
+    nav {
+
+        flex-direction: column;
+
+    }
+
+}

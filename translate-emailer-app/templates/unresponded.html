@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Unresponded</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+    
+    {# NavBar #}
+
+    <nav class="navbar">
+
+    <a class="navbar-brand" href="/">Customers</a>
+
+    <a href="/create">Add Customer</a>
+
+    <a href="/compose">Compose</a>
+
+    </nav>
+
+    <section>
+        <h2>Unresponded Emails</h2>
+        <ul>
+        {% for email in emails %}
+            <li><a href="/email_read/{{ email.Receive_Date }}">{{ email.id }}</a></li>
+        {% else %}
+            <li>You have no emails yet.</li>
+        {% endfor %}
+        </ul>
+    </section>
+
+</body>
+
+</html>
